@@ -1,6 +1,4 @@
-## MADE FOR CRUZ HACKS - BEST BEGGINER
-
-#### Devpost Submission: https://devpost.com/software/drink-wise
+## Sober-Sense
 
 ##### What does it do?
 The inspiration for DrinkWise came from the devastating effects of drunk driving and the need to address this problem on college campuses. DrinkWise is a solution that combines both facial recognition and audio recognition technology to determine an individual's level of sobriety. This allows us to check if they are fit to drive a car. 
