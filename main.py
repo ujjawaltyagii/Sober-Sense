@@ -17,7 +17,7 @@ def upload_photo():
     if photo:
         filename = photo.filename
         # Set the destination directory where the photo will be saved
-        destination = os.path.join(os.getcwd(), 'uploads', filename)
+        destination = os.path.join(os.getcwd(), 'drunkImages', filename)
         photo.save(destination)
 
         val = face_model.check_intoxicated(photo.filename)
