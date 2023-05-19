@@ -6,17 +6,33 @@ import voice_model
 app = Flask(__name__)
 
 
-@app.route('/')
-def camera():
-  return render_template('camera.html')
+@app.route('/', methods=['GET'])
+def index():
+  print("here")
+  return render_template('index.html')
+
+@app.route('/test', methods=['GET'])
+def test():
+  return render_template('test.html')
+
+@app.route('/upload_image', methods=['GET'])
+def upload_image_get():
+   return render_template('submit_image.html')
+
+@app.route('/upload_video', methods=['GET'])
+def upload_video_get():
+   return render_template('submit_video.html')
 
 
-@app.route('/upload_photo', methods=['POST'])
-def upload_photo():
-    photo = request.files['photo']
+@app.route('/upload_image', methods=['POST'])
+def upload_image():
+    print("recieved")
+    photo = request.files['image']
+    return render_template('upload_video.html')
     if photo:
         filename = photo.filename
         # Set the destination directory where the photo will be saved
+        os.makedirs('drunkImages', exist_ok=True)
         destination = os.path.join(os.getcwd(), 'drunkImages', filename)
         photo.save(destination)
 
@@ -24,7 +40,6 @@ def upload_photo():
         with open('val.txt', 'w') as f:
          f.write(str(val))
 
-    return render_template('voice_model.html')
 
 # @app.route('/upload_video', methods=['POST'])
 # def upload_video():
@@ -37,6 +52,7 @@ def upload_photo():
 @app.route('/upload_video', methods=['POST'])
 def upload_video():
     video = request.files['video']
+    print(video)
     video_path = os.path.join(os.getcwd(), video.filename)  # Get the absolute file path
 
     video.save(video_path)
@@ -58,8 +74,8 @@ def upload_video():
     print(res/2)
 
     if res/2 >= 0.6:
-      return render_template('intoxicated.html')
+      return render_template('drunk.html')
     else:
-      return render_template('not_intoxicated.html')
+      return render_template('sober.html')
 
 app.run(host='0.0.0.0', port=18)

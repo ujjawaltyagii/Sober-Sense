@@ -18,7 +18,7 @@ for filename in os.listdir(os.path.join(os.getcwd(), 'drunkImages')):
     if not filename.startswith('.'):
         f = os.path.join(os.getcwd(), 'drunkImages', filename)
         if os.path.isfile(f):
-            im = Image.open(f)
+            im = Image.open(f)  
 
             # Calculate the size of each piece
             width, height = im.size
@@ -63,6 +63,8 @@ for i in tensors:
     set_x.append(torch.flatten(i))
 
 set_x = torch.nn.utils.rnn.pad_sequence(set_x, batch_first=True)
+#each image tensor in set_x should have the same width and height.
+#To achieve this, the pad_sequence function is used to pad sequence of tensors
 
 def get_datasets():
     return set_x, set_y
