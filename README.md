@@ -19,3 +19,12 @@ Sober-Sense is a fully responsive web-app with two tests to detect sobriety:
 - Bootstrap
 - HTML
 - CSS
+
+Note : On phone it's taking picture and video of user in realtime, I am showing it in laptop so here we uploaded the pic and video
+
+
+https://github.com/ujjawaltyagii/Sober-Sense/assets/115401171/c2d46713-5637-4147-ba82-6c2760413f28
+
+#### Event : SPIC Ideation'23
+#### Team : Tech Wizards
+#### Team Members : Ujjawal Tyagi, Suryansh Kapil
